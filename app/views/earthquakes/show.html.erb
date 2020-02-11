@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quakeid:</strong>
+  <%= @earthquake.quakeID %>
+</p>
+
+<p>
+  <strong>Locationsource:</strong>
+  <%= @earthquake.locationSource %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @earthquake.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @earthquake.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_earthquake_path(@earthquake) %> |
+<%= link_to 'Back', earthquakes_path %>

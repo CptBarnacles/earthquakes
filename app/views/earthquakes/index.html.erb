@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Earthquakes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quakeid</th>
+      <th>Locationsource</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @earthquakes.each do |earthquake| %>
+      <tr>
+        <td><%= earthquake.quakeID %></td>
+        <td><%= earthquake.locationSource %></td>
+        <td><%= earthquake.latitude %></td>
+        <td><%= earthquake.longitude %></td>
+        <td><%= link_to 'Show', earthquake %></td>
+        <td><%= link_to 'Edit', edit_earthquake_path(earthquake) %></td>
+        <td><%= link_to 'Destroy', earthquake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Earthquake', new_earthquake_path %>
