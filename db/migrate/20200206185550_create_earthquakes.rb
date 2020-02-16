@@ -1,7 +1,6 @@
 class CreateEarthquakes < ActiveRecord::Migration[5.2]
   def change
-    create_table :earthquakes do |t|
-      t.integer :quakeID
+    create_table :earthquakes, id: false do |t|
       t.string :locationSource
       t.decimal :latitude
       t.decimal :longitude

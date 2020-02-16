@@ -69,6 +69,6 @@ class EarthquakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def earthquake_params
-      params.require(:earthquake).permit(:quakeID, :locationSource, :latitude, :longitude)
+      params.require(:earthquake).permit(:locationSource, :latitude, :longitude)
     end
 end

@@ -10,8 +10,7 @@ namespace :putquakes do
 
       #create new model instances with the data
       Earthquake.create!(
-      quakeID: row[11].to_s,
-  	  locationSource: row[20].to_s,
+  	  locationSource: row[13].tr('"', ''),
   	  latitude: row[1].to_i,
   	  longitude: row[2].to_i
   	  )

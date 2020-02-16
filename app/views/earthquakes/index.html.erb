@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Quakeid</th>
-      <th>Locationsource</th>
+      <th>Location source</th>
       <th>Latitude</th>
       <th>Longitude</th>
       <th colspan="3"></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @earthquakes.each do |earthquake| %>
       <tr>
-        <td><%= earthquake.quakeID %></td>
         <td><%= earthquake.locationSource %></td>
         <td><%= earthquake.latitude %></td>
         <td><%= earthquake.longitude %></td>
