@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_155325) do
+ActiveRecord::Schema.define(version: 2020_02_16_121025) do
+
+  create_table "bigquakes", force: :cascade do |t|
+    t.string "locationSource"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.decimal "magError"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "earthquakes", force: :cascade do |t|
+    t.integer "quakeID"
     t.string "locationSource"
     t.decimal "latitude"
     t.decimal "longitude"

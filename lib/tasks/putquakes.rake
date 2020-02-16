@@ -1,6 +1,6 @@
 require 'csv'
 namespace :putquakes do
-  desc "pull polar bear data into database"
+  desc "pull earthquake location from csv"
   task seed_quakes: :environment do
 
     #drop the old table data before importing the new stuff
