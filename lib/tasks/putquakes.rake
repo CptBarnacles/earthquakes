@@ -12,7 +12,8 @@ namespace :putquakes do
       Earthquake.create!(
   	  locationSource: row[13].tr('"', ''),
   	  latitude: row[1].to_i,
-  	  longitude: row[2].to_i
+  	  longitude: row[2].to_i,
+  	  time: row[0].to_s
   	  )
     end
     

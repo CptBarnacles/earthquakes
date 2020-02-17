@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_121025) do
+ActiveRecord::Schema.define(version: 2020_02_16_141835) do
 
   create_table "bigquakes", force: :cascade do |t|
     t.string "locationSource"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_121025) do
     t.decimal "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "time"
   end
 
 end

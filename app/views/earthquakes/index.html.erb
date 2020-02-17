@@ -1,30 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Earthquakes</h1>
+<h1>Earthquakes (Past 7 Days)</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Location source</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @earthquakes.each do |earthquake| %>
+<div class="table-body">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= earthquake.locationSource %></td>
-        <td><%= earthquake.latitude %></td>
-        <td><%= earthquake.longitude %></td>
-        <td><%= link_to 'Show', earthquake %></td>
-        <td><%= link_to 'Edit', edit_earthquake_path(earthquake) %></td>
-        <td><%= link_to 'Destroy', earthquake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Location source</th>
+        <th>Latitude |</th>
+        <th>Longitude</th>
+        <th>Time</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @earthquakes.each do |earthquake| %>
+        <tr>
+          <td><%= earthquake.locationSource %></td>
+          <td><%= earthquake.latitude %></td>
+          <td><%= earthquake.longitude %></td>
+          <td><%= earthquake.time %></td>
+          <td><%= link_to 'Show', earthquake %></td>
+          <td><%= link_to 'Edit', edit_earthquake_path(earthquake) %></td>
+          <td><%= link_to 'Destroy', earthquake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%= paginate @earthquakes %>
+</div>
+
+
 
 <br>
 

@@ -3,8 +3,8 @@ class EarthquakesController < ApplicationController
 
   # GET /earthquakes
   # GET /earthquakes.json
-  def index
-    @earthquakes = Earthquake.first(25)
+  def index                                    
+    @earthquakes = Earthquake.order(:time).page(params[:page])
   end
 
   # GET /earthquakes/1
@@ -72,3 +72,5 @@ class EarthquakesController < ApplicationController
       params.require(:earthquake).permit(:locationSource, :latitude, :longitude)
     end
 end
+
+
