@@ -35,17 +35,24 @@ class EarthquakesController < ApplicationController
     end
   end
 =end
-  
+
+
+# Fetch a feed containing GeoRss info and print them
+
   def feed
     require 'feedjira'
-    require 'open-uri'
     require 'httparty'
 
-    Feedjira::Feed.add_common_feed_element("title")
-    xml = HTTParty.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom").body
-    Feedjira.parse(xml).title
-    feed.entries.inspect
+   url = "http://earthquakes.bgs.ac.uk/feeds/WorldSeismology.xml"
+    
+    xml = HTTParty.get(url).body
+
+    feed = Feedjira.parse(xml)
+    feed.entries.first.title
+    
   end
+
+
 
   helper_method :feed
   # POST /earthquakes

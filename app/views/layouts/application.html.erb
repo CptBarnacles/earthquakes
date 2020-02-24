@@ -8,10 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <div class="container">
+  <div class="container" style="width:1000px">
   <body>
     <% render :partial=>"layouts/menu" %>
     <%= yield %>
   </body>
   <div>
+
+  <div class="sidenav">
+  <div id="atomFeed">
+  <h3> World Earthquake Feed </h3>
+  <ul>
+    <%= feed %>
+  </ul>
+</div>
+
+</div>
+</div>
 </html>
+
+
