@@ -1,6 +1,5 @@
 class EarthquakesController < ApplicationController
   before_action :set_earthquake, only: [:show, :edit, :update, :destroy]
-
   # GET /earthquakes
   # GET /earthquakes.json
   def index                                    
@@ -21,6 +20,34 @@ class EarthquakesController < ApplicationController
   def edit
   end
 
+=begin 
+  def feed
+    require 'rss'
+    require 'open-uri'
+
+    url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom'
+    open(url) do |rss|
+      feed = RSS::Parser.parse(rss)
+      puts "Title: #{"USGS Significant Earthquakes, Past Week"}"
+      feed.items.each do |item|
+        puts "Item: #{item.title}"
+      end
+    end
+  end
+=end
+  
+  def feed
+    require 'feedjira'
+    require 'open-uri'
+    require 'httparty'
+
+    Feedjira::Feed.add_common_feed_element("title")
+    xml = HTTParty.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom").body
+    Feedjira.parse(xml).title
+    feed.entries.inspect
+  end
+
+  helper_method :feed
   # POST /earthquakes
   # POST /earthquakes.json
   def create
@@ -61,6 +88,7 @@ class EarthquakesController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_earthquake
@@ -72,5 +100,6 @@ class EarthquakesController < ApplicationController
       params.require(:earthquake).permit(:locationSource, :latitude, :longitude)
     end
 end
+
 
 

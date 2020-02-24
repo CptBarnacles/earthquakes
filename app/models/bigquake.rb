@@ -1,0 +1,3 @@
+class Bigquake < ApplicationRecord
+	
+end

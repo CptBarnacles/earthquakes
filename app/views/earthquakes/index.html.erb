@@ -2,12 +2,19 @@
 
 <h1>Earthquakes (Past 7 Days)</h1>
 
+<%= link_to 'View Largest Magnitude Earthquakes This Month', bigquakes_path %>
+<p>
+
+<div>
+
+
+</div>
 
 <div class="table-body">
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Location source</th>
+        <th>Location</th>
         <th>Latitude |</th>
         <th>Longitude</th>
         <th>Time</th>
@@ -33,7 +40,14 @@
 </div>
 
 
-
 <br>
 
 <%= link_to 'New Earthquake', new_earthquake_path %>
+
+<%= line_chart @earthquakes.all.group(:time).sum(:latitude) %>
+
+<br>
+
+
+
+<%= feed %>

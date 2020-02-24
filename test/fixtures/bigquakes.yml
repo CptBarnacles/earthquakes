@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  locationSource: MyString
+  latitude: 9.99
+  longitude: 9.99
+  magError: 9.99
+
+two:
+  locationSource: MyString
+  latitude: 9.99
+  longitude: 9.99
+  magError: 9.99

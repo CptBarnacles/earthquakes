@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Locationsource:</strong>
+  <%= @bigquake.locationSource %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @bigquake.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @bigquake.longitude %>
+</p>
+
+<p>
+  <strong>Magerror:</strong>
+  <%= @bigquake.magError %>
+</p>
+
+<%= link_to 'Edit', edit_bigquake_path(@bigquake) %> |
+<%= link_to 'Back', bigquakes_path %>
+
+<p>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@bigquake.latitude},#{@bigquake.longitude}&key=AIzaSyDB26_WsEWYGQbRoVXEb0OTrCpm1RkX8ho", alt: "Map" %>
+</p>

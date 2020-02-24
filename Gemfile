@@ -10,6 +10,9 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'simple-rss'
+gem 'feedjira'
+gem 'httparty'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'chartkick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
