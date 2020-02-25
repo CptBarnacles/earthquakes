@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+=begin
   def mobile_device?
   	if session[:mobile_param]
   		session[:mobile_param] == "1"
@@ -26,5 +27,5 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :mobile_device?
-
+=end
 end
