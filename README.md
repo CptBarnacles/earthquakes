@@ -1,6 +1,6 @@
 
 
-# README for the app name > #
+# README for USGS Earthquake Report > #
 Ruby 2.5.1  Rails 5.2.1
 A live version is deployed on Heroku, and can be accessed using the following link:
 
@@ -10,8 +10,8 @@ https://sleepy-anchorage-64633.herokuapp.com/
 
 ## running the application locally ##
 Run bundle installIf the sqlite3 database isn't already present, then seed the database using:
-rake tables:seed (or other commands as required)
-rake products:seed
+
+rake putquakes:seed_quakes
 
 
 
