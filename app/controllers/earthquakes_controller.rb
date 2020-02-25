@@ -39,22 +39,7 @@ class EarthquakesController < ApplicationController
 
 # Fetch a feed containing GeoRss info and print them
 
-  def feed
-    require 'feedjira'
-    require 'httparty'
 
-   url = "http://earthquakes.bgs.ac.uk/feeds/WorldSeismology.xml"
-    
-    xml = HTTParty.get(url).body
-
-    feed = Feedjira.parse(xml)
-    feed.entries.first.title
-    
-  end
-
-
-
-  helper_method :feed
   # POST /earthquakes
   # POST /earthquakes.json
   def create
@@ -70,7 +55,7 @@ class EarthquakesController < ApplicationController
       end
     end
   end
-
+  #2455
   # PATCH/PUT /earthquakes/1
   # PATCH/PUT /earthquakes/1.json
   def update
@@ -97,12 +82,12 @@ class EarthquakesController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_earthquake
       @earthquake = Earthquake.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+   
     def earthquake_params
       params.require(:earthquake).permit(:locationSource, :latitude, :longitude)
     end

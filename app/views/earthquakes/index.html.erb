@@ -1,49 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Earthquakes (Past 7 Days)</h1>
+<h1>USGS Earthquake Report (Past 7 Days)</h1>
 
-<%= link_to 'View Largest Magnitude Earthquakes This Month', bigquakes_path %>
+<%= link_to 'View Largest Magnitude Earthquakes This Month  ', bigquakes_path %>  |  <%= link_to ' Add another Earthquake', new_earthquake_path %>
 <p>
 
 <div>
 
 
 </div>
-
-<div class="table-body">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Location</th>
-        <th>Latitude |</th>
-        <th>Longitude</th>
-        <th>Time</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @earthquakes.each do |earthquake| %>
+<table class="table">
+      <thead>
         <tr>
-          <td><%= earthquake.locationSource %></td>
-          <td><%= earthquake.latitude %></td>
-          <td><%= earthquake.longitude %></td>
-          <td><%= earthquake.time %></td>
-          <td><%= link_to 'Show', earthquake %></td>
-          <td><%= link_to 'Edit', edit_earthquake_path(earthquake) %></td>
-          <td><%= link_to 'Destroy', earthquake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th scope="col">Location</th>
+          <th scope="col">Latitude</th>
+          <th scope="col">Longitude</th>
+          <th scope="col">Time</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @earthquakes.each do |earthquake| %>
+          <tr>
+            <td><%= earthquake.locationSource %></td>
+            <td><%= earthquake.latitude %></td>
+            <td><%= earthquake.longitude %></td>
+            <td><%= earthquake.time %></td>
+            <td><%= link_to 'Show', earthquake %></td>
+            <td><%= link_to 'Edit', edit_earthquake_path(earthquake) %></td>
+            <td><%= link_to 'Destroy', earthquake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+</table>
+<br>
 <%= paginate @earthquakes %>
-</div>
 
 
 <br>
 
-<%= link_to 'New Earthquake', new_earthquake_path %>
 
-<%= line_chart @earthquakes.all.group(:time).sum(:latitude) %>
+
+<%= line_chart @earthquakes.group_by_day(:time).count, xtitle: "Date", ytitle: "Frequency" %>
+
+
 
 <br>

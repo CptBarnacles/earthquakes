@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Largest Earthquakes (Past 30 days)</h1>
+<h1>Largest Magnitude Earthquakes (Past 30 days)</h1>
 
-<%= link_to 'View Earthquakes in the past 7 days', earthquakes_path %>
+<%= link_to 'View Earthquakes in the past 7 days', earthquakes_path %> | <%= link_to 'Add another Earthquake', new_bigquake_path %>
 
 
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Location</th>
@@ -31,12 +31,10 @@
     <% end %>
   </tbody>
 </table>
+<br>
 <%= paginate @bigquakes %>
 <br>
 
-<%= link_to 'New Bigquake', new_bigquake_path %>
 
 
-
-
-<%= line_chart @bigquakes.group(:locationSource).sum(:magError) %>
+<%= line_chart @bigquakes.group(:locationSource).sum(:magError), xtitle: "Source", ytitle: "Magnitude" %>
