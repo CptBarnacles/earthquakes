@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-   def feed
+   def feed# This is my method for creation of a relevant rss feed
 	  require 'feedjira'
 	  require 'httparty'
 
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	  xml = HTTParty.get(url).body
 
 	  feed = Feedjira.parse(xml)
-	  feed.entries.first.title
+	  feed.entries.first.title #this parses the most recent earthquake but I would have liked it to show the first several
    end
 
   helper_method :feed
@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-
+#This was my partial attempt at mobile user sessions for a more responsive GUI.
+#I left it in because it wasn't hurting anybody
   def mobile_device?
   	if session[:mobile_param]
   		session[:mobile_param] == "1"

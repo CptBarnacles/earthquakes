@@ -36,5 +36,5 @@
 <br>
 
 
-
+<!---This is my line chart using the chartkick gem --->
 <%= line_chart @bigquakes.group(:locationSource).sum(:magError), xtitle: "Source", ytitle: "Magnitude" %>

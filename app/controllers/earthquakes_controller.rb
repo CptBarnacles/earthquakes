@@ -4,6 +4,7 @@ class EarthquakesController < ApplicationController
   # GET /earthquakes.json
   def index                                    
     @earthquakes = Earthquake.order(:time).page(params[:page])
+    #For the main page the records are sorted by time as it a 7 day report
   end
 
   # GET /earthquakes/1
@@ -20,21 +21,7 @@ class EarthquakesController < ApplicationController
   def edit
   end
 
-=begin 
-  def feed
-    require 'rss'
-    require 'open-uri'
 
-    url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom'
-    open(url) do |rss|
-      feed = RSS::Parser.parse(rss)
-      puts "Title: #{"USGS Significant Earthquakes, Past Week"}"
-      feed.items.each do |item|
-        puts "Item: #{item.title}"
-      end
-    end
-  end
-=end
 
 
 # Fetch a feed containing GeoRss info and print them

@@ -41,6 +41,7 @@
 
 
 
+<!---This is my line chart using the chartkick gem --->
 <%= line_chart @earthquakes.group_by_day(:time).count, xtitle: "Date", ytitle: "Frequency" %>
 
 
