@@ -1,6 +1,6 @@
 
 
-# README for USGS Earthquake Report > #
+# README for USGS Earthquake Report  #
 Ruby 2.5.1  Rails 5.2.1
 A live version is deployed on Heroku, and can be accessed using the following link:
 
